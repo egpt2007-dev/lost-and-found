@@ -100,7 +100,7 @@ def review_claims(found_item_id):
     claims = conn.execute(
         """
         SELECT claims.*, items.description AS lost_description,
-               items.location AS lost_location, items.date AS lost_date
+        items.location AS lost_location, items.date AS lost_date
         FROM claims
         JOIN items ON claims.lost_item_id = items.id
         WHERE claims.found_item_id = ? AND claims.status = 'pending'
