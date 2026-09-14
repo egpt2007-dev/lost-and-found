@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Item Posted</title>
+</head>
+<body>
+    <h1>Item submitted successfully!</h1>
+
+    {% if matches %}
+        <h2>Possible Matches Found:</h2>
+        <ul>
+            {% for item, score in matches %}
+            <li>
+                <strong>{{ item['description'] }}</strong>
+                — {{ item['location'] }} ({{ item['date'] }})
+                — Match Score: {{ "%.0f"|format(score * 100) }}%
+                — <a href="/claim/{{ item['id'] }}/{{ lost_item_id }}">Claim this</a>
+            </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No matches found yet.</p>
+    {% endif %}
+
+    <p><a href="/items">Browse all items</a></p>
+</body>
+</html>

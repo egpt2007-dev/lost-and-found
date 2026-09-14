@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Browse Items</title>
+</head>
+<body>
+    <h1>All Lost & Found Items</h1>
+    <ul>
+        {% for item in items %}
+        <li>
+            <strong>{{ item['type'] }}</strong>: {{ item['description'] }}
+            — {{ item['location'] }} ({{ item['date'] }})
+            — Status: {{ item['status'] }}
+        </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

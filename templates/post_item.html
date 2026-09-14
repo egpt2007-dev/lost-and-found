@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Post Item</title>
+</head>
+<body>
+    <h1>Report a Lost or Found Item</h1>
+
+    <form action="/post" method="POST">
+        <label>Item Category:</label><br>
+        <select name="type" required>
+            <option value="lost">Lost</option>
+            <option value="found">Found</option>
+        </select><br><br>
+
+        <label>Description:</label><br>
+        <textarea name="description" rows="4" cols="40" placeholder="e.g. Black leather wallet with student ID inside" required></textarea><br><br>
+
+        <label>Location:</label><br>
+        <input type="text" name="location" placeholder="e.g. University Library, 2nd floor" required><br><br>
+
+        <label>Date Lost/Found:</label><br>
+        <input type="date" name="date" required><br><br>
+
+        <label>Contact Info:</label><br>
+        <input type="text" name="contact_info" placeholder="e.g. phone or email" required><br><br>
+
+        <button type="submit">Submit Item</button>
+    </form>
+</body>
+</html>

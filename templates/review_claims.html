@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8"><title>Review Claims</title></head>
+<body>
+    <h1>Claims on: {{ found_item['description'] }}</h1>
+
+    {% if claims %}
+        <ul>
+            {% for claim in claims %}
+            <li>
+                <strong>{{ claim['lost_description'] }}</strong>
+                — {{ claim['lost_location'] }} ({{ claim['lost_date'] }})
+                — Match Score: {{ "%.0f"|format(claim['similarity_score'] * 100) }}%
+
+                <form action="/claim/{{ claim['id'] }}/confirm" method="POST" style="display:inline">
+                    <button type="submit">Confirm</button>
+                </form>
+                <form action="/claim/{{ claim['id'] }}/reject" method="POST" style="display:inline">
+                    <button type="submit">Reject</button>
+                </form>
+            </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No pending claims yet.</p>
+    {% endif %}
+</body>
+</html>
